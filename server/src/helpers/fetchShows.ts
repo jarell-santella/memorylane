@@ -5,7 +5,7 @@ const apiKey = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZDFiMGU4NTdkMGFjMTlmNWU3
 
 export const fetchShows = async (year: number) => {
     const stringYear = year.toString();
-
+    
     return axios
         .get(
             `https://api.themoviedb.org/3/discover/tv?first_air_date.gte=${stringYear}-01-01&first_air_date.lte=${stringYear}-12-31&include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc`,

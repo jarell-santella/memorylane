@@ -17,7 +17,7 @@ class InvalidParamsError extends Error {
 class DataNotFound extends Error {
   constructor(message: string) {
     super(message)
-    this.name = "MovieDataError"
+    this.name = "DataNotFound"
     Object.setPrototypeOf(this, DataNotFound.prototype)
   }
 }
