@@ -1,12 +1,13 @@
 import axios from 'axios';
-import { DataNotFound } from './errors';
+import { DataNotFound } from '../errors';
 
 const apiKey = 'HtRf0xMWbc/x6VphtgdRGg==FEkcU81DXwIAe5hM';
 
 export const fetchHistoricalEvents = async (year: number) => {
+  const stringYear = year.toString();
 
     return axios
-      .get(`https://api.api-ninjas.com/v1/historicalevents?year=${year}`, {
+      .get(`https://api.api-ninjas.com/v1/historicalevents?year=${stringYear}`, {
         headers: {
           'X-Api-Key': apiKey,
           'Content-Type': 'application/json'
@@ -17,7 +18,7 @@ export const fetchHistoricalEvents = async (year: number) => {
 
         // checking if data contains objects with data
         if (response.data.length === 0){
-          throw new DataNotFound("couldn't find movie data for given year")
+          throw new DataNotFound("couldn't find historical data for given year")
         }
 
         // picking random entry from the year, returning object for given index
@@ -38,9 +39,7 @@ export const fetchHistoricalEvents = async (year: number) => {
         };
     
       })
-      .catch(function (error) {
-        // Handle error
-        console.error('Error:', error);
+      .catch((error): void => {
+        throw error
       });
-    
 }

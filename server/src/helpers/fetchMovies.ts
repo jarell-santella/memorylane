@@ -1,13 +1,14 @@
 import axios from 'axios';
-import { DataNotFound } from './errors';
+import { DataNotFound } from '../errors';
 
 const apiKey = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZDFiMGU4NTdkMGFjMTlmNWU3NDhhYTRmMzg2ZTgxNyIsInN1YiI6IjY1YjRhNjJhMWM2MzViMDE3YjEyZWI5OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0l6t6cmeD3ZNFN_KRZmmP8_fzMaoRybGF-_XqYTqwUc';
 
 export const fetchMovie = async (year: number) => {
+    const stringYear = year.toString();
 
     return axios
         .get(
-            "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_date.gte=2023-01-01&primary_release_date.lte=2023-12-31&sort_by=popularity.desc", 
+            `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_date.gte=${stringYear}-01-01&primary_release_date.lte=${stringYear}-12-31&sort_by=popularity.desc`,
             {
                 headers: {
                     accept: 'application/json',
@@ -24,11 +25,11 @@ export const fetchMovie = async (year: number) => {
 
             return {
                 title: response.data.results[0].original_title,
-                releaseDate: response.data.results[0].release_date
+                releaseDate: response.data.results[0].release_date,
+                imagePath: "https://image.tmdb.org/t/p/original" + response.data.results[0].poster_path
             };
         })
-        .catch(function (error) {
-            // Handle error
-            console.error('Error:', error);
-        });
+        .catch((error): void => {
+            throw error
+          });
 }
