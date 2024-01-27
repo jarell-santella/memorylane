@@ -3,7 +3,7 @@ export interface SongData {
   songName: string | null
 }
 
-export function formatSongData(songData: string): SongData {
+export const formatSongData = (songData: string): SongData => {
   const parts = songData.split("\n")
 
   // "-" means that there is no data in that cell
