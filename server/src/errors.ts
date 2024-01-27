@@ -14,4 +14,12 @@ class InvalidParamsError extends Error {
   }
 }
 
-export { HTMLParseError, InvalidParamsError }
+class InvalidDataError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "InvalidDataError"
+    Object.setPrototypeOf(this, InvalidDataError.prototype)
+  }
+}
+
+export { HTMLParseError, InvalidDataError }
