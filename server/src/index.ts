@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from "express"
 import cors from "cors"
 import dotenv from "dotenv"
-import { fetchNBA, fetchNHL, fetchNFL } from "./helpers/fetchCohere"
+import { fetchNBA, fetchNHL, fetchNFL, fetchLink } from "./helpers/fetchCohere"
 import { fetchTopBillboard } from "./helpers/fetchTopBillboard"
 import { fetchHistoricalEvents } from "./helpers/fetchHistoricalEvents"
 import { fetchShows } from "./helpers/fetchShows"
@@ -155,6 +155,22 @@ app.get(
     }
 
     fetchNFL(year)
+      .then((data) => {
+        res.json(data)
+      })
+      .catch((error) => {
+        res.status(500).json({ error: error.name })
+      })
+  }
+)
+
+// using cohere to return a link based on the message given to the chatbot
+// input the object.text from the previous fetchNBA, fetchNFL, fetchNHL into this function to return the link
+app.get(
+  "/getlink/:link",
+  async (req: Request, res: Response): Promise<void> => {
+    const link: string = req.params.link.toString();
+    fetchLink(link)
       .then((data) => {
         res.json(data)
       })

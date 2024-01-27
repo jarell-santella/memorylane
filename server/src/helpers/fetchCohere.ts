@@ -11,7 +11,7 @@ export const fetchNBA = async (year: number) => {
             'https://api.cohere.ai/v1/chat',
             {
                 model: 'command',
-                message: `can you tell me who won the nba finals in ${stringYear}`,
+                message: `who won the nba finals in ${stringYear}`,
             },
             {
                 headers: {
@@ -48,7 +48,7 @@ export const fetchNHL = async (year: number) => {
             'https://api.cohere.ai/v1/chat',
             {
                 model: 'command',
-                message: `can you tell me who won the NHL stanley cup in ${stringYear}`,
+                message: `who won the NHL stanley cup in ${stringYear}`,
             },
             {
                 headers: {
@@ -85,7 +85,7 @@ export const fetchNFL = async (year: number) => {
             'https://api.cohere.ai/v1/chat',
             {
                 model: 'command',
-                message: `can you tell me who won the superbowl in ${stringYear}`,
+                message: `who won the superbowl in ${stringYear}`,
             },
             {
                 headers: {
@@ -116,13 +116,13 @@ export const fetchNFL = async (year: number) => {
 // using cohere to return a link based on the message given to the chatbot
 // input the object.text from the previous fetchNBA, fetchNFL, fetchNHL into this function to return the link
 export const fetchLink = async (linkText: string) => {
-
+    const decodedLink = decodeURIComponent(linkText)
     return axios
         .post(
             'https://api.cohere.ai/v1/chat',
             {
                 model: 'command',
-                message: `can you give me a link to learn more about ${linkText}`,
+                message: `can you give me a link to learn more about ${decodedLink}`,
             },
             {
                 headers: {
@@ -142,7 +142,7 @@ export const fetchLink = async (linkText: string) => {
             const match = originalText.match(regex);
 
             // If a match is found, extract the link from the match
-            const firstLink = match ? match[0] : "https://www.google.ca";
+            const firstLink = match ? match[0] : "https://coral.cohere.com/";
 
             return {
               returnedLink: firstLink,
