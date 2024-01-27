@@ -7,7 +7,6 @@ import { fetchHistoricalEvents } from "./helpers/fetchHistoricalEvents"
 import { fetchShows } from "./helpers/fetchShows"
 import { fetchMovie } from "./helpers/fetchMovies"
 import axios from "axios"
-import { fetchTopBillboard } from "./helpers/fetchTopBillboard"
 import { getRandomNumber } from "./utils/random"
 
 dotenv.config()
@@ -24,7 +23,7 @@ app.get("/", (req: Request, res: Response) => {
 // Use this just for temporarily testing
 app.get("/test/:year", (req: Request, res: Response) => {
   const year: number = parseInt(req.params.year)
-  res.send({year: year})
+  res.send({ year: year })
 })
 
 app.get(
@@ -46,139 +45,120 @@ app.get(
   }
 )
 
-
 // get movie calls
-app.get(
-  "/movie/:year",
-  async (req: Request, res: Response): Promise<void> => {
-    const year: number = parseInt(req.params.year)
+app.get("/movie/:year", async (req: Request, res: Response): Promise<void> => {
+  const year: number = parseInt(req.params.year)
 
-    if (isNaN(year)) {
-      res.status(400).json({ error: "Invalid year" })
-      return
-    }
-    
-    fetchMovie(year)
-      .then((data) => {
-        res.json(data)
-      })
-      .catch((error) => {
-        res.status(500).json({ error: error.name })
-      })
+  if (isNaN(year)) {
+    res.status(400).json({ error: "Invalid year" })
+    return
   }
-)
+
+  fetchMovie(year)
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.name })
+    })
+})
 
 // get show calls
-app.get(
-  "/tvshow/:year",
-  async (req: Request, res: Response): Promise<void> => {
-    const year: number = parseInt(req.params.year)
+app.get("/tvshow/:year", async (req: Request, res: Response): Promise<void> => {
+  const year: number = parseInt(req.params.year)
 
-    if (isNaN(year)) {
-      res.status(400).json({ error: "Invalid year" })
-      return
-    }
-
-    fetchShows(year)
-      .then((data) => {
-        res.json(data)
-      })
-      .catch((error) => {
-        res.status(500).json({ error: error.name })
-      })
+  if (isNaN(year)) {
+    res.status(400).json({ error: "Invalid year" })
+    return
   }
-)
+
+  fetchShows(year)
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.name })
+    })
+})
 
 // get historical events call
-app.get(
-  "/events/:year",
-  async (req: Request, res: Response): Promise<void> => {
-    const year: number = parseInt(req.params.year)
+app.get("/events/:year", async (req: Request, res: Response): Promise<void> => {
+  const year: number = parseInt(req.params.year)
 
-    if (isNaN(year)) {
-      res.status(400).json({ error: "Invalid year" })
-      return
-    }
-
-    fetchHistoricalEvents(year)
-      .then((data) => {
-        res.json(data)
-      })
-      .catch((error) => {
-        res.status(500).json({ error: error.name })
-      })
+  if (isNaN(year)) {
+    res.status(400).json({ error: "Invalid year" })
+    return
   }
-)
+
+  fetchHistoricalEvents(year)
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.name })
+    })
+})
 
 // get nba championship winner call
-app.get(
-  "/nba/:year",
-  async (req: Request, res: Response): Promise<void> => {
-    const year: number = parseInt(req.params.year)
+app.get("/nba/:year", async (req: Request, res: Response): Promise<void> => {
+  const year: number = parseInt(req.params.year)
 
-    if (isNaN(year)) {
-      res.status(400).json({ error: "Invalid year" })
-      return
-    }
-
-    fetchNBA(year)
-      .then((data) => {
-        res.json(data)
-      })
-      .catch((error) => {
-        res.status(500).json({ error: error.name })
-      })
+  if (isNaN(year)) {
+    res.status(400).json({ error: "Invalid year" })
+    return
   }
-)
+
+  fetchNBA(year)
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.name })
+    })
+})
 
 // get nhl championship winner call
-app.get(
-  "/nhl/:year",
-  async (req: Request, res: Response): Promise<void> => {
-    const year: number = parseInt(req.params.year)
+app.get("/nhl/:year", async (req: Request, res: Response): Promise<void> => {
+  const year: number = parseInt(req.params.year)
 
-    if (isNaN(year)) {
-      res.status(400).json({ error: "Invalid year" })
-      return
-    }
-
-    fetchNHL(year)
-      .then((data) => {
-        res.json(data)
-      })
-      .catch((error) => {
-        res.status(500).json({ error: error.name })
-      })
+  if (isNaN(year)) {
+    res.status(400).json({ error: "Invalid year" })
+    return
   }
-)
+
+  fetchNHL(year)
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.name })
+    })
+})
 
 // get nfl championship winner call
-app.get(
-  "/nfl/:year",
-  async (req: Request, res: Response): Promise<void> => {
-    const year: number = parseInt(req.params.year)
+app.get("/nfl/:year", async (req: Request, res: Response): Promise<void> => {
+  const year: number = parseInt(req.params.year)
 
-    if (isNaN(year)) {
-      res.status(400).json({ error: "Invalid year" })
-      return
-    }
-
-    fetchNFL(year)
-      .then((data) => {
-        res.json(data)
-      })
-      .catch((error) => {
-        res.status(500).json({ error: error.name })
-      })
+  if (isNaN(year)) {
+    res.status(400).json({ error: "Invalid year" })
+    return
   }
-)
+
+  fetchNFL(year)
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.name })
+    })
+})
 
 // using cohere to return a link based on the message given to the chatbot
 // input the object.text from the previous fetchNBA, fetchNFL, fetchNHL into this function to return the link
 app.get(
   "/getlink/:link",
   async (req: Request, res: Response): Promise<void> => {
-    const link: string = req.params.link.toString();
+    const link: string = req.params.link.toString()
     fetchLink(link)
       .then((data) => {
         res.json(data)
@@ -186,11 +166,20 @@ app.get(
       .catch((error) => {
         res.status(500).json({ error: error.name })
       })
+  }
+)
 
-  app.get(
-    "/get/:section/:year",
-    async (req: Request, res: Response): Promise<void> => {
+app.get(
+  "/get/:section/:year",
+  async (req: Request, res: Response): Promise<void> => {
     const section: string = req.params.section.toString()
+    const year: number = parseInt(req.params.year)
+
+    if (isNaN(year)) {
+      res.status(400).json({ error: "Invalid year" })
+      return
+    }
+
     const currentYear = new Date().getFullYear()
 
     const halfwayYear = (year + currentYear) / 2
