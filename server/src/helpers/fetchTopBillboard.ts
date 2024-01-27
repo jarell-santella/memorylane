@@ -1,7 +1,8 @@
 import axios from "axios"
 import { parse, HTMLElement } from "node-html-parser"
 import { HTMLParseError } from "../errors"
-import { formatSongData } from "../utils/formatting"
+import { SongData, formatSongData } from "../utils/formatting"
+import { fetchMusicThumbnail } from "./fetchMusicThumbnail"
 
 export const fetchTopBillboard = async (year: number) => {
   return axios
@@ -11,8 +12,7 @@ export const fetchTopBillboard = async (year: number) => {
         headers: { "User-Agent": "memorylane" },
       }
     )
-    .then((response) => {
-      console.log("test")
+    .then(async (response) => {
       const htmlContent: string = response.data.parse.text["*"]
 
       const root: HTMLElement = parse(htmlContent)
@@ -41,15 +41,33 @@ export const fetchTopBillboard = async (year: number) => {
       }
 
       // Extract data from all <td> elements in the row
-      const rowData: (string | null)[] = Array.from(
-        row.querySelectorAll("td")
-      ).map((cell) =>
-        formatSongData(cell.textContent ? cell.textContent.trim() : "")
+      const rowData: SongData[] = Array.from(row.querySelectorAll("td")).map(
+        (cell) =>
+          formatSongData(cell.textContent ? cell.textContent.trim() : "")
       )
+
       return {
-        pop: { single: rowData[1], album: rowData[2] },
-        soul: { single: rowData[3], album: rowData[4] },
-        country: { single: rowData[5], album: rowData[6] },
+        pop: {
+          song: `${rowData[1].artistName} - ${rowData[1].songName}`,
+          thumbnail: await fetchMusicThumbnail(
+            rowData[1].songName!,
+            rowData[1].artistName!
+          ),
+        },
+        soul: {
+          song: `${rowData[3].artistName} - ${rowData[3].songName}`,
+          thumbnail: await fetchMusicThumbnail(
+            rowData[3].songName!,
+            rowData[3].artistName!
+          ),
+        },
+        country: {
+          song: `${rowData[5].artistName} - ${rowData[5].songName}`,
+          thumbnail: await fetchMusicThumbnail(
+            rowData[5].songName!,
+            rowData[5].artistName!
+          ),
+        },
       }
     })
     .catch((error): void => {

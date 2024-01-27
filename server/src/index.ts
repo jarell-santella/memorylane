@@ -3,7 +3,6 @@ import cors from "cors"
 import dotenv from "dotenv"
 import { fetchTopBillboard } from "./helpers/fetchTopBillboard"
 
-
 dotenv.config()
 
 const app: Express = express()
