@@ -14,6 +14,17 @@ class InvalidParamsError extends Error {
   }
 }
 
+
+class DataNotFound extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "DataNotFound"
+    Object.setPrototypeOf(this, DataNotFound.prototype)
+  }
+}
+
+export { HTMLParseError, InvalidParamsError, DataNotFound }
+
 class InvalidDataError extends Error {
   constructor(message: string) {
     super(message)
@@ -23,3 +34,4 @@ class InvalidDataError extends Error {
 }
 
 export { HTMLParseError, InvalidDataError }
+
