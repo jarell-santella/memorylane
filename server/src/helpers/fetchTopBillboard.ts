@@ -48,21 +48,24 @@ export const fetchTopBillboard = async (year: number) => {
 
       return {
         pop: {
-          song: `${rowData[1].artistName} - ${rowData[1].songName}`,
+          artistName: rowData[1].artistName,
+          songName: rowData[1].songName,
           thumbnail: await fetchMusicThumbnail(
             rowData[1].songName!,
             rowData[1].artistName!
           ),
         },
         soul: {
-          song: `${rowData[3].artistName} - ${rowData[3].songName}`,
+          artistName: rowData[3].artistName,
+          songName: rowData[3].songName,
           thumbnail: await fetchMusicThumbnail(
             rowData[3].songName!,
             rowData[3].artistName!
           ),
         },
         country: {
-          song: `${rowData[5].artistName} - ${rowData[5].songName}`,
+          artistName: rowData[5].artistName,
+          songName: rowData[5].songName,
           thumbnail: await fetchMusicThumbnail(
             rowData[5].songName!,
             rowData[5].artistName!

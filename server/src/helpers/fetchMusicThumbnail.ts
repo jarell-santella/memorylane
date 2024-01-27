@@ -1,5 +1,4 @@
 import axios from "axios"
-import { InvalidDataError } from "../errors"
 
 export const fetchMusicThumbnail = async (songName: string, artistName: string) => {
   return axios
