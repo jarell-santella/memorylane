@@ -23,8 +23,6 @@ class DataNotFound extends Error {
   }
 }
 
-export { HTMLParseError, InvalidParamsError, DataNotFound }
-
 class InvalidDataError extends Error {
   constructor(message: string) {
     super(message)
@@ -33,5 +31,4 @@ class InvalidDataError extends Error {
   }
 }
 
-export { HTMLParseError, InvalidDataError }
-
+export { HTMLParseError, InvalidParamsError, DataNotFound, InvalidDataError }
