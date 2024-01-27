@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from "express"
+import cors from "cors"
 import dotenv from "dotenv"
 import { fetchTopBillboard } from "./helpers/fetchTopBillboard"
 
@@ -7,6 +8,8 @@ dotenv.config()
 
 const app: Express = express()
 const port = process.env.PORT || 3000
+
+app.use(cors())
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express is running!")
