@@ -32,6 +32,10 @@ app.get(
   }
 )
 
+app.use((req, res) => {
+  res.status(404).json({ error: "Not Found" })
+})
+
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`)
 })
