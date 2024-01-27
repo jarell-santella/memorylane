@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Section.css';
 import axios from 'axios';
+import frontJersey from '../assets/front-jersey.png'
+import backJersey from '../assets/back-jersey.png'
 
 const colorPalettes: { [key: string]: string[] } = {
   '1970': ['#608125', '#824920', '#467486', '#808026', '#854982', '#d2a741'],
@@ -141,7 +143,9 @@ const Section: React.FC<{ topic: string; year: string; }> =
                                 </div>
                             </div>
                             <div className="bottom">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                <a href={'https://www.google.com/search?q=' + musicMatrix[0][1] + ' ' + musicMatrix[0][0]} target='blank'>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -161,7 +165,9 @@ const Section: React.FC<{ topic: string; year: string; }> =
                                     </div>
                             </div>
                             <div className="bottom">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                <a href={'https://www.google.com/search?q=' + musicMatrix[1][1] + ' ' + musicMatrix[1][0]} target='blank'>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -181,7 +187,9 @@ const Section: React.FC<{ topic: string; year: string; }> =
                             </div>
                             </div>
                             <div className="bottom">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                <a href={'https://www.google.com/search?q=' + musicMatrix[2][1] + ' ' + musicMatrix[2][0]} target='blank'>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -216,7 +224,9 @@ const Section: React.FC<{ topic: string; year: string; }> =
                                 </div>
                             </div>
                             <div className="bottom">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                <a href={'https://www.google.com/search?q=' + musicMatrix[0][1] + ' ' + musicMatrix[0][0]} target='blank'>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -236,7 +246,9 @@ const Section: React.FC<{ topic: string; year: string; }> =
                                     </div>
                             </div>
                             <div className="bottom">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                <a href={'https://www.google.com/search?q=' + musicMatrix[1][1] + ' ' + musicMatrix[1][0]} target='blank'>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -256,7 +268,9 @@ const Section: React.FC<{ topic: string; year: string; }> =
                             </div>
                             </div>
                             <div className="bottom">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                <a href={'https://www.google.com/search?q=' + musicMatrix[2][1] + ' ' + musicMatrix[2][0]} target='blank'>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/IPod_wheel.svg" alt="" />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -270,15 +284,46 @@ const Section: React.FC<{ topic: string; year: string; }> =
             return(
                 <section className={`section sports`} style={sectionStyle}>
                 <div className="title">
-                    <img src="../assets/front-jersey.png" alt="" />
+                    <img className='top' src={frontJersey} alt="" />
                     <h1>{topic.toUpperCase()}</h1>
+                    <div className="back">
+                        <p>{year.slice(-2)}</p>
+                        <img src={backJersey} alt="" />
+                    </div>
                 </div>
                 <div className="body">
                     <div className="row r1">
+                        <div className="side-title">
+                            <img src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png" alt="" />
+                        </div>
+                        <div className="mid-info">
+
+                        </div>
+                        <div className="side-img">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Basketball_Clipart.svg/1024px-Basketball_Clipart.svg.png" alt="" />
+                        </div>
                     </div>
                     <div className="row r2">
+                        <div className="side-img">
+                        <img src="https://pngimg.com/d/american_football_PNG59.png" alt="" />
+                        </div>
+                        <div className="mid-info">
+
+                        </div>
+                        <div className="side-title">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png" alt="" />
+                        </div>
                     </div>
                     <div className="row r3">
+                    <div className="side-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/05_NHL_Shield.svg/800px-05_NHL_Shield.svg.png" alt="" />
+                        </div>
+                        <div className="mid-info">
+
+                        </div>
+                        <div className="side-img">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/018/062/545/small/ice-hockey-player-sport-team-png.png" alt="" />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -289,14 +334,46 @@ const Section: React.FC<{ topic: string; year: string; }> =
                 <section className={`section sports`} style={sectionStyle}>
                 <div className="body">
                     <div className="row r1">
+                        <div className="side-title">
+                            <img src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png" alt="" />
+                        </div>
+                        <div className="mid-info">
+
+                        </div>
+                        <div className="side-img">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Basketball_Clipart.svg/1024px-Basketball_Clipart.svg.png" alt="" />
+                        </div>
                     </div>
                     <div className="row r2">
+                        <div className="side-img">
+                        <img src="https://pngimg.com/d/american_football_PNG59.png" alt="" />
+                        </div>
+                        <div className="mid-info">
+
+                        </div>
+                        <div className="side-title">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png" alt="" />
+                        </div>
                     </div>
                     <div className="row r3">
+                    <div className="side-title">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/05_NHL_Shield.svg/800px-05_NHL_Shield.svg.png" alt="" />
+                        </div>
+                        <div className="mid-info">
+                            <p>lor</p>
+                        </div>
+                        <div className="side-img">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/018/062/545/small/ice-hockey-player-sport-team-png.png" alt="" />
+                        </div>
                     </div>
                 </div>
                 <div className="title">
+                    <img className='top' src={frontJersey} alt="" />
                     <h1>{topic.toUpperCase()}</h1>
+                    <div className="back">
+                        <p>{year.slice(-2)}</p>
+                        <img src={backJersey} alt="" />
+                    </div>
                 </div>
             </section>
             );
