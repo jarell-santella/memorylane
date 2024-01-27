@@ -5,7 +5,7 @@ export const fetchMusicThumbnail = async (
   songName: string,
   artistName: string
 ) => {
-  axios
+  return axios
     .get(`https://api.genius.com/search?q=${encodeURIComponent(songName)}`, {
       headers: {
         Authorization: `Bearer ${process.env.GENIUS_API_TOKEN}`,
@@ -13,9 +13,10 @@ export const fetchMusicThumbnail = async (
     })
     .then((response) => {
       for (const hit of response.data.response.hits) {
+        // This can be problematic if the first artist's artistName is a superset " featuring"
         if (
           hit.result.title === songName &&
-          artistName.split(" featuring")[0].includes(hit.result.artist_names)
+          hit.result.primary_artist.name === artistName.split(" featuring")[0]
         ) {
           return hit.result.song_art_image_thumbnail_url
         }
