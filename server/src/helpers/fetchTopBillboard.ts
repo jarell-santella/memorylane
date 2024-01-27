@@ -74,6 +74,7 @@ export const fetchTopBillboard = async (year: number) => {
       }
     })
     .catch((error): void => {
+      console.log(error)
       throw error
     })
 }
