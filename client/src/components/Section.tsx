@@ -265,6 +265,44 @@ const Section: React.FC<{ topic: string; year: string; }> =
             );
     }}
 
+    if(topic == 'sports'){
+        if(flip){
+            return(
+                <section className={`section sports`} style={sectionStyle}>
+                <div className="title">
+                    <img src="../assets/front-jersey.png" alt="" />
+                    <h1>{topic.toUpperCase()}</h1>
+                </div>
+                <div className="body">
+                    <div className="row r1">
+                    </div>
+                    <div className="row r2">
+                    </div>
+                    <div className="row r3">
+                    </div>
+                </div>
+            </section>
+            );
+        }
+        else{
+            return(
+                <section className={`section sports`} style={sectionStyle}>
+                <div className="body">
+                    <div className="row r1">
+                    </div>
+                    <div className="row r2">
+                    </div>
+                    <div className="row r3">
+                    </div>
+                </div>
+                <div className="title">
+                    <h1>{topic.toUpperCase()}</h1>
+                </div>
+            </section>
+            );
+        }
+    }
+
   return (
     <section className={`section ${topic}`} style={sectionStyle}>
         <div className="title">

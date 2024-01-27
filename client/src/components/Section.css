@@ -180,3 +180,36 @@
 .music .card{
     background-color: rgb(160, 160, 160);
 }
+
+.sports{
+    font-family: "Tourney", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+
+.sports .title{
+    font-size: 3rem;
+    flex: 1;
+}
+
+.sports .body{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.sports .row{
+    flex: 1;
+    width: 100%;
+}
+
+.sports .r1, .r3{
+    background-color: rgba(103, 103, 103, 0.259);
+}
+
+.sports .r2{
+    background-color: rgba(6, 6, 6, 0.319);
+}

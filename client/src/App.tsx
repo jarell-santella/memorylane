@@ -7,6 +7,7 @@ function App() {
     <>
       <div>
         <Section topic='songs' year='2004' />
+        <Section topic='sports' year='2004' />
       </div>
     </>
   )
