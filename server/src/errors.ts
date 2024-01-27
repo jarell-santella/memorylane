@@ -14,4 +14,12 @@ class InvalidParamsError extends Error {
   }
 }
 
-export { HTMLParseError, InvalidParamsError }
+class DataNotFound extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "MovieDataError"
+    Object.setPrototypeOf(this, DataNotFound.prototype)
+  }
+}
+
+export { HTMLParseError, InvalidParamsError, DataNotFound }

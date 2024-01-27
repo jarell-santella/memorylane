@@ -1,4 +1,5 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
+import { DataNotFound } from './errors';
 
 const apiKey = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZDFiMGU4NTdkMGFjMTlmNWU3NDhhYTRmMzg2ZTgxNyIsInN1YiI6IjY1YjRhNjJhMWM2MzViMDE3YjEyZWI5OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0l6t6cmeD3ZNFN_KRZmmP8_fzMaoRybGF-_XqYTqwUc';
 
@@ -16,8 +17,9 @@ export const fetchMovie = async (year: number) => {
         )
         .then(function (response) {
 
+            // checking if data contains objects with data
             if (response.data.length === 0){
-                throw new nullDataError("couldn't find movie data for given year")
+                throw new DataNotFound("couldn't find movie data for given year")
             }
 
             return {

@@ -1,37 +1,46 @@
-import axios, { AxiosResponse } from 'axios';
-
-// variables used for request
-const year = 2020; // placeholder, needs to be changed
+import axios from 'axios';
+import { DataNotFound } from './errors';
 
 const apiKey = 'HtRf0xMWbc/x6VphtgdRGg==FEkcU81DXwIAe5hM';
 
-// call request
-axios.get(`https://api.api-ninjas.com/v1/historicalevents?year=${year}`, {
-  headers: {
-    'X-Api-Key': apiKey,
-    'Content-Type': 'application/json'
-  }
-})
+export const fetchHistoricalEvents = async (year: number) => {
 
-  .then(function (response) {
-    // Handle success
-    console.log('Response:', response.data);
+    return axios
+      .get(`https://api.api-ninjas.com/v1/historicalevents?year=${year}`, {
+        headers: {
+          'X-Api-Key': apiKey,
+          'Content-Type': 'application/json'
+        }
+        }
+      )
+      .then(function (response) {
 
-    // picking random entry from the year, returning object for given index
-    function genRandNum(min:number, max:number):number { // returns 
-      const randomFloat = Math.random();
-      const randomNumber = Math.floor(randomFloat * (max - min + 1)) + min;
-      return randomNumber;
-    };
+        // checking if data contains objects with data
+        if (response.data.length === 0){
+          throw new DataNotFound("couldn't find movie data for given year")
+        }
 
-    const randNum = genRandNum(0, response.data.length - 1);
-    const entry = response.data[randNum];
+        // picking random entry from the year, returning object for given index
+        function genRandNum(min:number, max:number):number { // returns 
+          const randomFloat = Math.random();
+          const randomNumber = Math.floor(randomFloat * (max - min + 1)) + min;
+          return randomNumber;
+        };
 
-    // entry information [day, month, event description]
-    const entryInfo = [entry.day, entry.month, entry.event];
-
-  })
-  .catch(function (error) {
-    // Handle error
-    console.error('Error:', error);
-  });
+        const randNum = genRandNum(0, response.data.length - 1);
+        const entry = response.data[randNum];
+    
+        // entry information date, short description/title
+        const entryDate = entry.year + entry.month + entry.day;
+        return {
+          eventDate: entryDate,
+          eventName: entry.event
+        };
+    
+      })
+      .catch(function (error) {
+        // Handle error
+        console.error('Error:', error);
+      });
+    
+}
