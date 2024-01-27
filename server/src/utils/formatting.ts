@@ -1,8 +1,18 @@
-export function formatSongData(songData: string): string | null {
+export interface SongData {
+  artistName: string | null
+  songName: string | null
+}
+
+export const formatSongData = (songData: string): SongData => {
   const parts = songData.split("\n")
-  if (parts.length === 2) {
-    songData = parts[1] + " - " + parts[0]
-  }
+
   // "-" means that there is no data in that cell
-  return songData.trim() === "—" ? null : songData.replace(/\[[0-9]+\]/g, "")
+  if (parts.length !== 2 || songData.trim() === "—") {
+    return { artistName: null, songName: null }
+  }
+
+  return {
+    artistName: parts[1].replace(/\[[0-9]+\]/g, ""),
+    songName: parts[0].replace(/\[[0-9]+\]|"/g, ""),
+  }
 }

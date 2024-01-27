@@ -6,6 +6,9 @@ import { fetchTopBillboard } from "./helpers/fetchTopBillboard"
 import { fetchHistoricalEvents } from "./helpers/fetchHistoricalEvents"
 import { fetchShows } from "./helpers/fetchShows"
 import { fetchMovie } from "./helpers/fetchMovies"
+import axios from "axios"
+import { fetchTopBillboard } from "./helpers/fetchTopBillboard"
+import { getRandomNumber } from "./utils/random"
 
 dotenv.config()
 
@@ -18,6 +21,12 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Express is running!")
 })
 
+// Use this just for temporarily testing
+app.get("/test/:year", (req: Request, res: Response) => {
+  const year: number = parseInt(req.params.year)
+  res.send({year: year})
+})
+
 app.get(
   "/billboard/:year",
   async (req: Request, res: Response): Promise<void> => {
@@ -27,16 +36,16 @@ app.get(
       res.status(400).json({ error: "Invalid year" })
       return
     }
-
     fetchTopBillboard(year)
-      .then((data) => {
-        res.json(data)
+      .then((response) => {
+        res.json(response)
       })
       .catch((error) => {
         res.status(500).json({ error: error.name })
       })
   }
 )
+
 
 // get movie calls
 app.get(
@@ -48,7 +57,7 @@ app.get(
       res.status(400).json({ error: "Invalid year" })
       return
     }
-
+    
     fetchMovie(year)
       .then((data) => {
         res.json(data)
@@ -177,11 +186,59 @@ app.get(
       .catch((error) => {
         res.status(500).json({ error: error.name })
       })
+
+  app.get(
+    "/get/:section/:year",
+    async (req: Request, res: Response): Promise<void> => {
+    const section: string = req.params.section.toString()
+    const currentYear = new Date().getFullYear()
+
+    const halfwayYear = (year + currentYear) / 2
+    const yearsToSubtract = Math.floor((currentYear - year) * 0.1)
+
+    const years: number[] = [
+      year,
+      getRandomNumber(
+        year + yearsToSubtract + 1,
+        halfwayYear - yearsToSubtract * 0.5
+      ),
+      getRandomNumber(
+        halfwayYear + yearsToSubtract + 1,
+        currentYear - yearsToSubtract
+      ),
+    ]
+
+    // Create an array of promises
+    const requests = years.map((year) =>
+      axios.get(
+        `http://localhost:${process.env.PORT || 3000}/${section}/${year}`
+      )
+    )
+
+    try {
+      // Execute all requests simultaneously
+      const responses = await Promise.all(requests)
+
+      // Extract data from responses
+      const results = responses.map((response) => response.data)
+
+      // Construct the response object
+      const responseObject: any = {}
+      years.forEach((year, index) => {
+        responseObject[year] = results[index]
+      })
+
+      // Send the response
+      res.json(responseObject)
+    } catch (error: any) {
+      // Handle any errors that occurred during the requests
+      res.status(500).json({ error: error.message })
+    }
   }
 )
 
 app.use((req, res) => {
-  res.status(404).json({ error: "Not Found" })
+  res.status(404).json({ error: "Not found" })
 })
 
 app.listen(port, () => {
