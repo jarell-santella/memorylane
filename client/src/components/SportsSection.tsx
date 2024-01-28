@@ -5,6 +5,7 @@ import { getRandomFlip } from "./Section.tsx"
 import { shuffle } from "../util/shuffle.ts"
 import frontJersey from "../assets/front-jersey.png"
 import backJersey from "../assets/back-jersey.png"
+import SportPanel, { Sport } from "./SportPanel.tsx"
 
 interface SportsSectionProps {
   year: string
@@ -68,6 +69,7 @@ const SportsSection: React.FC<SportsSectionProps> = ({ year, bgColor }) => {
   if (!data) return <div>Loading...</div>
 
   if (flip) {
+    console.log(sports)
     return (
       <section
         className={`section sports`}
@@ -83,55 +85,22 @@ const SportsSection: React.FC<SportsSectionProps> = ({ year, bgColor }) => {
         </div>
         <div className="body">
           <div className="row r1">
-            <div className="side-title">
-              <img
-                src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png"
-                alt=""
-              />
-            </div>
-            <div className="mid-info">
-              <p>{data.nba.text}</p>
-            </div>
-            <div className="side-img">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Basketball_Clipart.svg/1024px-Basketball_Clipart.svg.png"
-                alt=""
-              />
-            </div>
+            <SportPanel
+              sport={sports[0] as Sport}
+              text={data[sports[0] as Sport].text}
+            />
           </div>
           <div className="row r2">
-            <div className="side-img">
-              <img
-                src="https://pngimg.com/d/american_football_PNG59.png"
-                alt=""
-              />
-            </div>
-            <div className="mid-info">
-              <p>{data.nfl.text}</p>
-            </div>
-            <div className="side-title">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png"
-                alt=""
-              />
-            </div>
+            <SportPanel
+              sport={sports[1] as Sport}
+              text={data[sports[1] as Sport].text}
+            />
           </div>
           <div className="row r3">
-            <div className="side-title">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/05_NHL_Shield.svg/800px-05_NHL_Shield.svg.png"
-                alt=""
-              />
-            </div>
-            <div className="mid-info">
-              <p>{data.nhl.text}</p>
-            </div>
-            <div className="side-img">
-              <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/018/062/545/small/ice-hockey-player-sport-team-png.png"
-                alt=""
-              />
-            </div>
+            <SportPanel
+              sport={sports[2] as Sport}
+              text={data[sports[2] as Sport].text}
+            />
           </div>
         </div>
       </section>
@@ -144,55 +113,22 @@ const SportsSection: React.FC<SportsSectionProps> = ({ year, bgColor }) => {
       >
         <div className="body">
           <div className="row r1">
-            <div className="side-title">
-              <img
-                src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png"
-                alt=""
-              />
-            </div>
-            <div className="mid-info">
-              <p>{data.nba.text}</p>
-            </div>
-            <div className="side-img">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Basketball_Clipart.svg/1024px-Basketball_Clipart.svg.png"
-                alt=""
-              />
-            </div>
+            <SportPanel
+              sport={sports[0] as Sport}
+              text={data[sports[0] as Sport].text}
+            />
           </div>
           <div className="row r2">
-            <div className="side-img">
-              <img
-                src="https://pngimg.com/d/american_football_PNG59.png"
-                alt=""
-              />
-            </div>
-            <div className="mid-info">
-              <p>{data.nfl.text}</p>
-            </div>
-            <div className="side-title">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png"
-                alt=""
-              />
-            </div>
+            <SportPanel
+              sport={sports[1] as Sport}
+              text={data[sports[1] as Sport].text}
+            />
           </div>
           <div className="row r3">
-            <div className="side-title">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/05_NHL_Shield.svg/800px-05_NHL_Shield.svg.png"
-                alt=""
-              />
-            </div>
-            <div className="mid-info">
-              <p>{data.nhl.text}</p>
-            </div>
-            <div className="side-img">
-              <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/018/062/545/small/ice-hockey-player-sport-team-png.png"
-                alt=""
-              />
-            </div>
+            <SportPanel
+              sport={sports[2] as Sport}
+              text={data[sports[2] as Sport].text}
+            />
           </div>
         </div>
         <div className="title">
