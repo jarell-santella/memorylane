@@ -5,7 +5,7 @@ import './boot-up.css'
 interface BootUpProps {
     onInput: (input: string) => void;
     isComplete: (state:boolean) => void;
-  }
+}
 
 export const BootUp: React.FC<BootUpProps> = ({ onInput, isComplete }) => {
 
