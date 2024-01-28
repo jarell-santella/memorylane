@@ -176,19 +176,19 @@
 }
 
 .c1, .c3{
-    margin-top: 16rem;
+    margin-top: 8rem;
 }
 
 .c1:hover, .c3:hover{
-    margin-top: 4rem;
+    margin-top: -4rem;
 }
 
 .c2{
-    margin-bottom: 16rem;
+    margin-bottom: 8rem;
 }
 
 .c2:hover{
-    margin-bottom: 4rem;
+    margin-bottom: -4rem;
 }
 
 .music .left .age-msg, .music .right .age-msg{
@@ -218,4 +218,17 @@
 .music .middle{
     align-items:end;
     padding-bottom: 200px;
+}
+
+.section .title:hover{
+    box-shadow: 16px 16px 30px rgba(0, 0, 0, 0.4);
+}
+
+.section .title h1{
+    transition: all .3s ease-in-out;
+}
+
+.section .title:hover h1{
+    color: rgba(255, 255, 255, 0.473);
+    transform: scale(1.05);
 }

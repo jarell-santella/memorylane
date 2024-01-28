@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import "./Section.css"
-import { getRandomFlip } from "./Section.tsx"
+import "./SportsSection.css"
 import { shuffle } from "../util/shuffle.ts"
 import frontJersey from "../assets/front-jersey.png"
 import backJersey from "../assets/back-jersey.png"
-import SportPanel, { Sport } from "./SportPanel.tsx"
+import { Sport } from "./SportPanel.tsx"
 
 interface SportsSectionProps {
   year: string
-  bgColor: string
 }
 
-const SportsSection: React.FC<SportsSectionProps> = ({ year, bgColor }) => {
+const SportsSection: React.FC<SportsSectionProps> = ({ year }) => {
   const [data, setData] = useState<any>(null)
   const [error, setError] = useState<any>(null)
 
@@ -62,86 +60,47 @@ const SportsSection: React.FC<SportsSectionProps> = ({ year, bgColor }) => {
       })
   }, [year])
 
-  const flip = getRandomFlip()
-  const topic = "Sports"
-
   if (error) return <div>Error loading data: {error}</div>
   if (!data) return <div>Loading...</div>
 
-  if (flip) {
-    console.log(sports)
+  var text = [data[sports[0] as Sport].text, data[sports[1] as Sport].text, data[sports[2] as Sport].text]
+
     return (
-      <section
-        className={`section sports`}
-        style={{ backgroundColor: bgColor }}
-      >
+    <section className={`section sports`}>
         <div className="title">
-          <img className="top" src={frontJersey} alt="" />
-          <h1>{topic.toUpperCase()}</h1>
-          <div className="back">
-            <p>{year.slice(-2)}</p>
-            <img src={backJersey} alt="" />
-          </div>
+            <h1>SPORTS</h1>
         </div>
-        <div className="body">
-          <div className="row r1">
-            <SportPanel
-              sport={sports[0] as Sport}
-              text={data[sports[0] as Sport].text}
-            />
-          </div>
-          <div className="row r2">
-            <SportPanel
-              sport={sports[1] as Sport}
-              text={data[sports[1] as Sport].text}
-            />
-          </div>
-          <div className="row r3">
-            <SportPanel
-              sport={sports[2] as Sport}
-              text={data[sports[2] as Sport].text}
-            />
-          </div>
+        <div className="container">
+            <div className="card">
+                <div className="image">
+                    <img src='https://cdn.worldvectorlogo.com/logos/nba.svg' />
+                </div>
+                <div className="content">
+                    <h3>{text[0]}</h3>
+                    <p></p>
+                </div>
+            </div>    
+            <div className="card">
+                <div className="image">
+                    <img src='https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png' />
+                </div>
+                <div className="content">
+                    <h3>{text[1]}</h3>
+                    <p></p>
+                </div>
+            </div>    
+            <div className="card">
+                <div className="image">
+                    <img src='https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/05_NHL_Shield.svg/800px-05_NHL_Shield.svg.png' />
+                </div>
+                <div className="content">
+                    <h3>{text[2]}</h3>
+                    <p></p>
+                </div>
+            </div>    
         </div>
-      </section>
-    )
-  } else {
-    return (
-      <section
-        className={`section sports`}
-        style={{ backgroundColor: bgColor }}
-      >
-        <div className="body">
-          <div className="row r1">
-            <SportPanel
-              sport={sports[0] as Sport}
-              text={data[sports[0] as Sport].text}
-            />
-          </div>
-          <div className="row r2">
-            <SportPanel
-              sport={sports[1] as Sport}
-              text={data[sports[1] as Sport].text}
-            />
-          </div>
-          <div className="row r3">
-            <SportPanel
-              sport={sports[2] as Sport}
-              text={data[sports[2] as Sport].text}
-            />
-          </div>
-        </div>
-        <div className="title">
-          <img className="top" src={frontJersey} alt="" />
-          <h1>{topic.toUpperCase()}</h1>
-          <div className="back">
-            <p>{year.slice(-2)}</p>
-            <img src={backJersey} alt="" />
-          </div>
-        </div>
-      </section>
-    )
-  }
+    </section>
+    );
 }
 
 export default SportsSection
