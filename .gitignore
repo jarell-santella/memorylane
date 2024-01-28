@@ -1,1 +1,8 @@
-node_modules
+# Compiled TypeScript
+**/dist/
+
+# Node modules
+**/node_modules/
+
+# Environment variables
+.env
