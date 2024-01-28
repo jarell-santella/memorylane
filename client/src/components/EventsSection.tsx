@@ -23,7 +23,8 @@ const EventsSection = ({ year }: { year: string }) => {
   if (!data) return <div>Loading...</div>
 
   return (
-    <>
+    <div className="section">
+      <>
       {Object.keys(data).map((yearKey) => (
         <div key={yearKey}>
           <h3>Year: {yearKey}</h3>
@@ -32,6 +33,8 @@ const EventsSection = ({ year }: { year: string }) => {
         </div>
       ))}
     </>
+    </div>
+
   )
 }
 
