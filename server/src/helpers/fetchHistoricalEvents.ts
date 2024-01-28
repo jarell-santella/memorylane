@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { DataNotFound } from '../errors';
 
-const apiKey = 'HtRf0xMWbc/x6VphtgdRGg==FEkcU81DXwIAe5hM';
-
 export const fetchHistoricalEvents = async (year: number) => {
     let stringYear = '';
     // checking if the year is the current year, if it is then we take the prior year
@@ -21,7 +19,7 @@ export const fetchHistoricalEvents = async (year: number) => {
             `https://api.api-ninjas.com/v1/historicalevents?year=${stringYear}`, 
             {
               headers: {
-                'X-Api-Key': apiKey,
+                'X-Api-Key': `${process.env.EVENTS_API_TOKEN}`,
                 'Content-Type': 'application/json'
               }
             }
@@ -52,6 +50,7 @@ export const fetchHistoricalEvents = async (year: number) => {
         
           })
           .catch((error): void => {
+            console.log(process.env.EVENTS_API_TOKEN);
             throw error
           });
     }

@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { DataNotFound } from '../errors';
 
-const apiKey = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZDFiMGU4NTdkMGFjMTlmNWU3NDhhYTRmMzg2ZTgxNyIsInN1YiI6IjY1YjRhNjJhMWM2MzViMDE3YjEyZWI5OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0l6t6cmeD3ZNFN_KRZmmP8_fzMaoRybGF-_XqYTqwUc';
-
 export const fetchShows = async (year: number) => {
     const stringYear = year.toString();
     
@@ -12,7 +10,7 @@ export const fetchShows = async (year: number) => {
             {
                 headers: {
                     accept: 'application/json',
-                    Authorization: apiKey
+                    Authorization: `Bearer ${process.env.MOVIE_SHOW_API_TOKEN}`
                   }
             }
         )

@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const apiKey = 'Bearer 74fPI0l6AJzJAPro2P0xK7Atl0BQLjUsbGWe1hp9';
-
 // asking chat bot for nba team that won in year
 export const fetchNBA = async (year: number) => {
     const stringYear = year.toString();
@@ -17,7 +15,7 @@ export const fetchNBA = async (year: number) => {
                 headers: {
                   'Content-Type': 'application/json',
                   Accept: 'application/json',
-                  Authorization: `${apiKey}`,
+                  Authorization: `${`Bearer ${process.env.COHERE_API_TOKEN}`}`,
                 },
             }
         )
@@ -54,7 +52,7 @@ export const fetchNHL = async (year: number) => {
                 headers: {
                   'Content-Type': 'application/json',
                   Accept: 'application/json',
-                  Authorization: `${apiKey}`,
+                  Authorization: `${`Bearer ${process.env.COHERE_API_TOKEN}`}`,
                 },
             }
         )
@@ -91,7 +89,7 @@ export const fetchNFL = async (year: number) => {
                 headers: {
                   'Content-Type': 'application/json',
                   Accept: 'application/json',
-                  Authorization: `${apiKey}`,
+                  Authorization: `${`Bearer ${process.env.COHERE_API_TOKEN}`}`,
                 },
             }
         )
@@ -128,7 +126,7 @@ export const fetchLink = async (linkText: string) => {
                 headers: {
                   'Content-Type': 'application/json',
                   Accept: 'application/json',
-                  Authorization: `${apiKey}`,
+                  Authorization: `${`Bearer ${process.env.COHERE_API_TOKEN}`}`,
                 },
             }
         )
