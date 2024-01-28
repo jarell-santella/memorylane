@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { BootUp } from './boot-up';
 import { Transition } from './transition';
 import Section from './components/Section.tsx';
-import SportsSection from './components/SportsSection.tsx';
 import './App.css';
+
 
 function App() {
 
@@ -34,6 +34,7 @@ function App() {
           <div className='sections'>
             <Section topic='songs' year={year} />
             <Section topic='sports' year={year} />
+            <Section topic='events' year={year} />
           </div>
         </>
       ) : (
