@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./Section.css";
+import "./TelevisionSection.css";
 
 interface TelevisionSectionProps {
   year: string;
@@ -43,11 +45,41 @@ const TelevisionSection: React.FC<TelevisionSectionProps> = ({ year }) => {
   if (!tvShowData) return <div>Loading...</div>;
 
   return (
-    <div className="section">
-      <p>Date: {tvShowReleaseDates[2]}</p>
-      <p>Name: {tvShowTitles[2]}</p>
-      <p>Image Path: {tvShowImagePaths[2]}</p>
+    // <div className="section">
+    //   <p>Date: {tvShowReleaseDates[2]}</p>
+    //   <p>Name: {tvShowTitles[2]}</p>
+    //   <p>Image Path: {tvShowImagePaths[2]}</p>
+    // </div>
+    <div className="section tv-screen">
+      <div className="screen-content">
+      <h1 className="tv-title">Television</h1>
+
+        <div className="show-holder">
+          <div className="show">
+          <h3>{tvShowReleaseDates[0]}</h3>
+          <p className="show-title">{tvShowTitles[0]}</p>
+          <img className="show-image" src={tvShowImagePaths[0]} alt="show" />
+        </div>
+
+        <div className="show">
+          <h3>{tvShowReleaseDates[1]}</h3>
+          <p className="show-title">{tvShowTitles[1]}</p>
+          <img className="show-image" src={tvShowImagePaths[1]} alt="show" />
+        </div>
+
+        <div className="show">
+          <h3>{tvShowReleaseDates[2]}</h3>
+          <p className="show-title">{tvShowTitles[2]}</p>
+          <img className="show-image" src={tvShowImagePaths[2]} alt="show" />
+        </div>
+        </div>
+
+      </div>
+      <div className="scanlines"></div>
+      
     </div>
+
+    
   );
 };
 
