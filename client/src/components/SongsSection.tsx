@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import "./Section.css"
+import "./SongsSection.css"
 import axios from "axios"
 import { getRandomFlip } from "./Section.tsx"
 
@@ -33,7 +34,6 @@ const getRandomGenre = (): string => {
 
 interface SongsSectionProps {
   year: string
-  bgColor: string
 }
 
 interface SongData {
@@ -42,7 +42,7 @@ interface SongData {
   thumbnail: string | null
 }
 
-const SongsSection: React.FC<SongsSectionProps> = ({ year, bgColor }) => {
+const SongsSection: React.FC<SongsSectionProps> = ({ year }) => {
   const topic = "Songs"
 
   const flip = getRandomFlip()
@@ -77,7 +77,7 @@ const SongsSection: React.FC<SongsSectionProps> = ({ year, bgColor }) => {
 
   if (flip) {
     return (
-      <section className={`section music`} style={{ backgroundColor: bgColor }}>
+      <section className={`section music`}>
         <div className="body">
           <div className="side left">
             <div className="age-msg">
@@ -196,7 +196,7 @@ const SongsSection: React.FC<SongsSectionProps> = ({ year, bgColor }) => {
     )
   } else {
     return (
-      <section className={`section music`} style={{ backgroundColor: bgColor }}>
+      <section className={`section music`}>
         <div className="title">
           <h1>{topic.toUpperCase()}</h1>
         </div>
