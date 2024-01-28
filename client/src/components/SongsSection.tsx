@@ -3,6 +3,7 @@ import "./Section.css"
 import "./SongsSection.css"
 import axios from "axios"
 import { getRandomFlip } from "./Section.tsx"
+import defaultImg from '../assets/memory-lane-logo.png'
 
 const songCompliments: string[] = [
   "This song is fire!",
