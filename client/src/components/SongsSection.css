@@ -2,6 +2,7 @@
     flex: 3;
     font-size: 3rem;
     color: black;
+    z-index: 50;
 }
 
 .section .body{
@@ -27,6 +28,7 @@
     height: 600px;
     position: absolute;
 
+    z-index: 50;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
     transition: all .3s ease-in-out;
 }
