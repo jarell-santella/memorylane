@@ -88,6 +88,9 @@
 
 .music .body .card .screen .info p{
     width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
     margin: 0;
     padding: 3px 2px;
     border: solid 1px rgb(38, 38, 38);
