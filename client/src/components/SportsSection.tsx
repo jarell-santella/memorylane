@@ -11,6 +11,29 @@ interface SportsSectionProps {
 
 const SportsSection: React.FC<SportsSectionProps> = ({ year, bgColor }) => {
     
+    // randomizing 2 years and setting array for all the years 
+    const getRandomNumber = (min: number, max: number): number =>
+        Math.floor(Math.random() * (max - min + 1) + min)
+
+    const currentYear = new Date().getFullYear()
+
+    const halfwayYear = (parseInt(year) + currentYear) / 2
+    const yearsToSubtract = Math.floor((currentYear - parseInt(year)) * 0.1)
+
+    const years: number[] = [
+      parseInt(year),
+      getRandomNumber(
+        parseInt(year) + yearsToSubtract + 1,
+        halfwayYear - yearsToSubtract * 0.5
+      ),
+      getRandomNumber(
+        halfwayYear + yearsToSubtract + 1,
+        currentYear - yearsToSubtract
+      ),
+    ]
+
+
+
     const flip = getRandomFlip();
     const topic = 'Sports';
     
