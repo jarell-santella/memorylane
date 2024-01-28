@@ -1,41 +1,45 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const EventsSection = ({ year }: { year: string }) => {
-  const [data, setData] = useState<any>(null)
-  const [error, setError] = useState<any>(null)
+  const [data, setData] = useState<any>(null);
+  const [error, setError] = useState<any>(null);
+  const [eventDates, setEventDates] = useState<string[]>([]);
+  const [eventNames, setEventNames] = useState<string[]>([]);
 
   useEffect(() => {
     axios
       .get(`http://localhost:3000/get/events/${year}`)
       .then((response) => {
-        setData(response.data) // Data is available in the `data` property of the response
-        console.log(year)
-        console.log(response.data)
+        setData(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error)
-        setError(error)
-      })
-  }, [year])
+        setError(error);
+      });
+  }, [year]);
 
-  if (error) return <div>Error loading data</div>
-  if (!data) return <div>Loading...</div>
+  useEffect(() => {
+    if (data) {
+      const dates: string[] = [];
+      const names: string[] = [];
+      Object.keys(data).forEach((yearKey) => {
+        dates.push(data[yearKey].eventDate);
+        names.push(data[yearKey].eventName);
+      });
+      setEventDates(dates);
+      setEventNames(names);
+    }
+  }, [data]);
+
+  if (error) return <div>Error loading data</div>;
+  if (!data) return <div>Loading...</div>;
 
   return (
     <div className="section">
-      <>
-      {Object.keys(data).map((yearKey) => (
-        <div key={yearKey}>
-          <h3>Year: {yearKey}</h3>
-          <p>Event Date: {data[yearKey].eventDate}</p>
-          <p>Event Name: {data[yearKey].eventName}</p>
-        </div>
-      ))}
-    </>
+      <p>Date: {eventDates[2]}</p>
+      <p>Name: {eventNames[2]}</p>
     </div>
+  );
+};
 
-  )
-}
-
-export default EventsSection
+export default EventsSection;
