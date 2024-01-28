@@ -40,7 +40,6 @@ const Section: React.FC<{ topic: string; year: string; }> =
     backgroundColor: randomColor,
   };
 
-
     if(topic == 'songs'){
         return(
             <SongsSection year={year} bgColor={randomColor}/>
