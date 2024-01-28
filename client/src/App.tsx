@@ -33,6 +33,7 @@ function App() {
           <div className='sections'>
             <Section topic='songs' year={year} />
             <Section topic='sports' year={year} />
+            <Section topic='movies' year={year} />
             <Section topic='events' year={year} />
             <Section topic='shows' year={year} />
           </div>
