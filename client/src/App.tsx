@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { BootUp } from './boot-up';
+import Transition from './transition';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [year, setYear] = useState("");
+  const [complete, setComplete] = useState(false);
 
+  // Function to handle input change in BootUp component
+  const handleInput = (input:any) => {
+    setYear(input);
+  };
+
+  const handleBoot = (state: boolean) => {
+    console.log("it is complete: " + state);
+    setComplete(state);
+  };
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BootUp onInput={handleInput} isComplete={handleBoot}/>
+      {complete ? <Transition time={year}/> : null}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
