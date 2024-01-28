@@ -1,5 +1,6 @@
 import './App.css';
 import Section from './components/Section.tsx';
+import SportsSection from './components/SportsSection.tsx';
 
 function App() {
 
