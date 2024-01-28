@@ -47,7 +47,7 @@ const Section: React.FC<{ topic: string; year: string }> = ({
     return <SongsSection year={year} />
   }
   if (topic == "sports") {
-    return <SportsSection year={year} />
+    return <SongsSection year={year} />
   }
   if (topic == "movies") {
     return <MovieSection year={year} />
