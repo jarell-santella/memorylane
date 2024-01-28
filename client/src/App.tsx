@@ -4,7 +4,6 @@ import { Transition } from './transition';
 import Section from './components/Section.tsx';
 import './App.css';
 
-
 function App() {
 
   const [year, setYear] = useState("");
@@ -34,13 +33,14 @@ function App() {
           <div className='sections'>
             <Section topic='songs' year={year} />
             <Section topic='sports' year={year} />
+            <Section topic='movies' year={year} />
             <Section topic='events' year={year} />
           </div>
         </>
       ) : (
         <>
-          {!bootComplete && <BootUp onInput={handleInput} isComplete={handleBoot}/>}
-          {bootComplete && !transComplete && <Transition year={Number(year)} isComplete={handleTransition}/>}
+          <BootUp onInput={handleInput} isComplete={handleBoot}/>
+          {bootComplete ? <Transition year={Number(year)} isComplete={handleTransition}/> : null}
         </>
       )}
     </>

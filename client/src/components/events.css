@@ -9,7 +9,7 @@
 
     .background-text {
         position: absolute;
-        bottom: -200vh;
+        bottom: -300vh;
         z-index: 1;
         font-size: 1rem;
     }
