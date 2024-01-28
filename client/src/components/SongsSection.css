@@ -1,0 +1,221 @@
+.section .title{
+    flex: 3;
+    font-size: 3rem;
+    color: black;
+}
+
+.section .body{
+    flex: 8;
+}
+
+.section .title:hover h1{
+    color: rgb(255, 255, 255);
+    transform: scale(1.05);
+}
+
+.section .title:hover{
+    background-color: black;
+}
+
+.body .card{
+    padding: 1.3rem;
+    border-radius: 20px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    flex: 0 1 auto; /* Allow the card to grow and shrink, but not beyond its content */
+    max-width: 300px;
+    max-height: 600px;
+    position: absolute;
+
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
+    transition: all .3s ease-in-out;
+}
+
+.music{
+    background-color: rgb(255, 255, 255);
+}
+
+.music .body .c1{
+    background-color: rgb(99, 132, 169);
+}
+
+.left{
+    background-color: rgb(185, 206, 230);
+}
+
+.music .body .c2{
+    background-color: rgb(165, 178, 193);
+}
+
+.middle{
+    background-color: rgb(115, 126, 138);
+}
+
+.music .body .c3{
+    background-color: rgb(104, 169, 99);
+}
+
+.right{
+    background-color: rgb(156, 215, 152);
+}
+
+.body .card:hover{
+    transform: scale(1.05);
+    box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.4);
+}
+
+.music .body .card .screen{
+    overflow: scroll;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.music .body .card .screen .info{
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    flex: 1;
+    font-size: 1.2rem;
+    background-color: rgb(229, 240, 246);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.music .body .card .screen .info p{
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    padding: 3px 2px;
+    border: solid 1px rgb(38, 38, 38);
+    transition: all 0.1s linear;
+    cursor: default;
+}
+
+.music .body .card .screen .info p:hover{
+    background-color: rgb(25, 117, 255);
+    color: white;
+}
+
+.music .body .card .screen .thumbnail{
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.music .body .card .screen .thumbnail img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.music .body .card .bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.body .card .bottom img{
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+.body .card .bottom img:hover{
+    transform: rotate(180deg);
+}
+
+.thumbnail img{
+    width: 150px;
+    height: auto;
+}
+
+.music{
+    font-family: "Sixtyfour", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BLED" 0,
+      "SCAN" 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.music .body{
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.side{
+    flex: 1;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.music .left, .right{ 
+    padding-top: 200px;
+}
+
+.card{
+    transition: all .2s ease-in-out;
+}
+
+.c1, .c3{
+    margin-top: 12rem;
+}
+
+.c1:hover, .c3:hover{
+    margin-top: 4rem;
+}
+
+.c2{
+    margin-bottom: 12rem;
+}
+
+.c2:hover{
+    margin-bottom: 4rem;
+}
+
+.music .left .age-msg, .music .right .age-msg{
+    align-self: flex-end;
+    padding-bottom: 200px;
+    padding-top: 40px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.545);
+}
+
+.music .middle .age-msg{
+    align-self: flex-start;
+    padding-top: 200px;
+    padding-bottom: 40px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.545);
+}
+
+.music .middle{
+    align-items:end;
+    padding-bottom: 200px;
+}
