@@ -1,7 +1,8 @@
 import React from 'react';
 import './Section.css';
 import SongsSection from './SongsSection';
-import SportsSection from './SportsSection'
+import SportsSection from './SportsSection';
+import EventsSection from './EventsSection';
 
 const colorPalettes: { [key: string]: string[] } = {
   '1970': ['#608125', '#824920', '#467486', '#808026', '#854982', '#d2a741'],
@@ -50,6 +51,11 @@ const Section: React.FC<{ topic: string; year: string; }> =
             <SportsSection year={year} bgColor={randomColor}/>
         );
     }
+    if(topic == 'events'){
+      return(
+          <EventsSection year={year} />
+      );
+  }
 
   return (
     <section className={`section ${topic}`} style={sectionStyle}>

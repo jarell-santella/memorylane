@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BootUp } from './boot-up';
 import { Transition } from './transition';
 import Section from './components/Section.tsx';
-import SportsSection from './components/SportsSection.tsx';
 import './App.css';
 
 function App() {
@@ -34,12 +33,13 @@ function App() {
           <div className='sections'>
             <Section topic='songs' year={year} />
             <Section topic='sports' year={year} />
+            <Section topic='events' year={year} />
           </div>
         </>
       ) : (
         <>
-          <BootUp onInput={handleInput} isComplete={handleBoot}/>
-          {bootComplete ? <Transition year={Number(year)} isComplete={handleTransition}/> : null}
+          {!bootComplete && <BootUp onInput={handleInput} isComplete={handleBoot}/>}
+          {bootComplete && !transComplete && <Transition year={Number(year)} isComplete={handleTransition}/>}
         </>
       )}
     </>

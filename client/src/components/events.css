@@ -1,0 +1,146 @@
+
+@font-face {
+    font-family: 'NewYorkTimes';
+    src: url('./Chomsky-399c.woff') format('woff');
+    /* Add more formats if needed */
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    .background-text {
+        position: absolute;
+        bottom: -200vh;
+        z-index: 1;
+        font-size: 1rem;
+    }
+
+    .holder {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box; /* Include padding in the total width and height */
+    }
+
+    .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    box-sizing: border-box; /* Include padding in the total width and height */
+    }
+
+    .events-title {
+    font-family: 'NewYorkTimes';
+    font-size: 6rem;
+    margin: 0;
+    }
+
+    .top-left-box {
+    padding: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    text-align: center;
+    width: 15vw;
+    border: 4px solid black;
+    }
+
+    .top-right{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-right-lil {
+        position: relative;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1rem;
+        text-align: center;
+        width: 15vw;
+    }
+    
+    .top-right-big {
+        content: 'NOSTALGIA EDITION';
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .bar {
+        border: 3px solid black;
+        width: 100%;
+        margin-top: 1rem;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .bar p:nth-child(-n + 3) {
+    margin: 0; 
+    flex: 1; 
+    }
+    
+    .bar p:nth-child(3) {
+       font-size: 0.5rem; 
+    }
+
+    .bar p:nth-child(4) {
+    margin: 0 auto; 
+    flex: 4.5; 
+    }
+    
+    .bar p {
+    flex-shrink: 0; 
+    }
+
+    .info-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box; 
+    }
+
+    .info {
+    width: 30%; /* Adjust the width as needed */
+    height: 60vh; /* Adjust the height as needed */
+    background-color: white;
+    z-index: 2;
+    margin-top: 5vh;
+    border: 2px solid black;
+    box-sizing: border-box; /* Include padding in the total width and height */
+    position: relative;
+    }
+
+    .headline {
+        font-size: 1.5rem;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    .info-date {
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 0.5rem;
+    }
+    
+    .info-name {
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 0.5rem;
+    }
+
+    .read-more-link {
+        position: absolute;
+        bottom: 1vh;
+        left: 50%;
+        transform: translateX(-50%);
+        text-decoration: none;
+        color: black; /* Choose the color you prefer */
+        text-decoration: underline;
+        font-weight: bold;
+      }
