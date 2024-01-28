@@ -1,6 +1,7 @@
 import React from 'react';
 import './Section.css';
 import SongsSection from './SongsSection';
+import MovieSection from './MovieSection'
 import SportsSection from './SportsSection'
 import EventsSection from './EventsSection';
 
@@ -50,6 +51,10 @@ const Section: React.FC<{ topic: string; year: string; }> =
             <SportsSection year={year} bgColor={randomColor}/>
         );
     }
+    if(topic == 'movies'){
+        return(
+            <MovieSection year={year}/>
+          );
     if(topic == 'events'){
         return(
             <EventsSection year={year}/>
