@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import "./SportsSection.css"
 import { shuffle } from "../util/shuffle.ts"
-import frontJersey from "../assets/front-jersey.png"
-import backJersey from "../assets/back-jersey.png"
 import { Sport } from "./SportPanel.tsx"
 
 interface SportsSectionProps {
