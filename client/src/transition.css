@@ -1,0 +1,81 @@
+.time{
+    font-size: 1.5rem;
+    display: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 20vw;
+    color: white;
+    font-weight: 700;
+    z-index: 50;
+    opacity: 0;
+    animation: time-appear 2s ease-in-out 1s forwards;
+}
+
+.transition{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    animation: time-appear 2s ease-in-out 1s forwards;
+}
+
+.white-mode{
+    position: absolute;
+    background-color: white;
+    z-index: 50;
+    width: 0;
+    height: 0;
+    animation: flashbang 0.5s ease-in-out 1s forwards;
+}
+
+@keyframes flashbang {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        width: 100vw;
+        height: 100vh;
+        opacity: 100%;
+    }    
+}
+
+.clock{
+    position: absolute;
+    opacity: 30%;
+    z-index: 30;
+    transform: scale(3);
+    animation: fade 2s ease-in-out 1s forwards;
+    opacity: 0;
+}
+
+@keyframes fade{
+    100%{
+        opacity: 50%;
+    }
+}
+
+@keyframes time-appear{
+    100%{
+        opacity: 100%;
+    }
+}
+    
+
+
+
+/* .sec{
+    border: white solid 10px;
+    height: 50vh;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-radius: 5%;
+} */

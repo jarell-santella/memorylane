@@ -2,3 +2,18 @@ html{
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
+
+.mode-white{
+  position: absolute;
+  background-color: white;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  animation: bangflash 0.5s ease-in-out 1s forwards;
+}
+
+@keyframes bangflash {
+  100% {
+    opacity: 0;
+  }    
+}
