@@ -2,25 +2,28 @@
 @font-face {
     font-family: 'NewYorkTimes';
     src: url('./Chomsky-399c.woff') format('woff');
-    /* Add more formats if needed */
     font-weight: normal;
     font-style: normal;
     }
 
     .background-text {
         position: absolute;
-        bottom: -300vh;
+        bottom: -300vh; /* Adjust this value to keep it below the bar */
         z-index: 1;
         font-size: 1rem;
+        max-width: 100%;
+        overflow: hidden;
     }
-
+    
     .holder {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    box-sizing: border-box; /* Include padding in the total width and height */
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        box-sizing: border-box;
+        max-height: 100vh; /* Adjust this value to limit the container height */
+        overflow-y: auto; /* Add vertical scrollbar if content exceeds container height */
     }
 
     .top-row {
@@ -36,6 +39,7 @@
     font-family: 'NewYorkTimes';
     font-size: 6rem;
     margin: 0;
+    z-index: 50;
     }
 
     .top-left-box {
@@ -45,12 +49,14 @@
     text-align: center;
     width: 15vw;
     border: 4px solid black;
+    z-index: 50;
     }
 
     .top-right{
         display: flex;
         flex-direction: column;
         align-items: center;
+        z-index: 50;
     }
 
     .top-right-lil {
@@ -59,12 +65,14 @@
         font-size: 1rem;
         text-align: center;
         width: 15vw;
+        z-index: 50;
     }
     
     .top-right-big {
         content: 'NOSTALGIA EDITION';
         font-weight: bold;
         font-size: 1.5rem;
+        z-index: 50;
     }
 
     .bar {
@@ -75,6 +83,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        z-index: 50;
     }
     
     .bar p:nth-child(-n + 3) {
@@ -100,6 +109,7 @@
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box; 
+    z-index: 50;
     }
 
     .info {
@@ -144,3 +154,11 @@
         text-decoration: underline;
         font-weight: bold;
       }
+
+    .white-cover{
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        height: 30vh;
+        z-index: 2;
+    }

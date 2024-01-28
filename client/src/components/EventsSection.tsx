@@ -69,6 +69,7 @@ const EventsSection = ({ year }: { year: string }) => {
         </div>
       ))} */}
       <div className="section holder">
+        <div className="white-cover"></div>
       <p className="background-text">{smol_text + smol_text + smol_text + smol_text + smol_text}</p>
         <div className="top-row">
           <h1 className="top-left-box">"The pasts most important blasts!"</h1>

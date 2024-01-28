@@ -1,0 +1,75 @@
+   
+  .tv-screen {
+    position: relative;
+    width: 97%;
+    height: 96vh;
+    border: 20px solid #7E481C;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .screen-content {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scanlines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(transparent 0px, transparent 1px, rgba(255, 255, 255, 0.1) 1px, rgba(255, 255, 255, 0.1) 2px);
+    pointer-events: none;
+  }
+
+  .tv-title{
+    position: absolute;
+    font-family: 'arial';
+    font-size: 5rem;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: white;
+  }
+
+
+  .show-holder {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* Align items at the bottom */
+    height: 100%;
+  }
+  
+  .show {
+    text-align: center;
+    color: white;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* Push content to the bottom */
+  }
+  
+  .show p {
+    margin: 10px 0;
+  }
+  
+  .show-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15vh;
+  }
+
+.show-title{
+    font-family: 'Roboto Mono';
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0;
+    font-weight: bold;
+}
