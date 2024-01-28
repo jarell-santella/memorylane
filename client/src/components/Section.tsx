@@ -4,6 +4,7 @@ import SongsSection from "./SongsSection"
 import MovieSection from "./MovieSection"
 import SportsSection from "./SportsSection"
 import EventsSection from "./EventsSection"
+import TelevisionSection from "./TelevisionSection"
 
 const colorPalettes: { [key: string]: string[] } = {
   "1970": ["#608125", "#824920", "#467486", "#808026", "#854982", "#d2a741"],
@@ -53,6 +54,9 @@ const Section: React.FC<{ topic: string; year: string }> = ({
   }
   if (topic == "events") {
     return <EventsSection year={year} />
+  }
+  if (topic == "shows") {
+    return <TelevisionSection year={year}/>
   }
 
   return (

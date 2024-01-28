@@ -35,6 +35,7 @@ function App() {
             <Section topic='sports' year={year} />
             <Section topic='movies' year={year} />
             <Section topic='events' year={year} />
+            <Section topic='shows' year={year} />
           </div>
         </>
       ) : (
