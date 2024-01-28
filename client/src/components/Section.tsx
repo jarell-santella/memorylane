@@ -1,8 +1,9 @@
 import React from 'react';
 import './Section.css';
 import SongsSection from './SongsSection';
-import SportsSection from './SportsSection';
 import MovieSection from './MovieSection'
+import SportsSection from './SportsSection'
+import EventsSection from './EventsSection';
 
 const colorPalettes: { [key: string]: string[] } = {
   '1970': ['#608125', '#824920', '#467486', '#808026', '#854982', '#d2a741'],
@@ -40,7 +41,6 @@ const Section: React.FC<{ topic: string; year: string; }> =
     backgroundColor: randomColor,
   };
 
-
     if(topic == 'songs'){
         return(
             <SongsSection year={year} bgColor={randomColor}/>
@@ -54,6 +54,10 @@ const Section: React.FC<{ topic: string; year: string; }> =
     if(topic == 'movies'){
         return(
             <MovieSection year={year}/>
+          );
+    if(topic == 'events'){
+        return(
+            <EventsSection year={year}/>
         );
     }
 

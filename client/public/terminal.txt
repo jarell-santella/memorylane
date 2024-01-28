@@ -1,0 +1,51 @@
+***********************************************
+*     Nostalgia Explorer v1.0 Boot Sequence   *
+*               (C) 2023 RetroTech            *
+*********************************************** 
+<br/>
+Initializing Nostalgia Explorer Components...
+<br/>
+BIOS Version 2.10
+  - Performing Nostalgia Self-Test (NST)...
+  - Checking CPU: UofT Blue III @ 800 MHz
+  - Testing RAM: 512MB system memory detected
+  - Scanning for nostalgia-inducing data...
+<br/>
+Loading Nostalgia Explorer Software...
+<br/>
+CONFIG.NES loaded:
+  - DEVICE=C:\EXPLORE\MEMORIES.SYS (Memory Module)
+  - DEVICE=C:\EXPLORE\SENTIMENT.EXE (Sentiment Analyzer)
+  - DOS=HIGH,UMB (Loading Nostalgia OS into Upper Memory Blocks)
+<br/>
+AUTOEXPLORE.BAT loaded:
+  - PATH=C:\EXPLORE;C:\UTILITY
+  - SET THEME=90s (Setting nostalgic theme)
+  - MUSICPLAYER.EXE /PLAYLIST=C:\EXPLORE\PLAYLISTS\90sHits.m3u (Loading 90s music)
+<br/>
+Checking Storage Devices...
+<br/>
+Primary Master: 100GB Hard Disk (C:)
+  - Loading Memories Archive... [||||||||||||||||||||||||||||||||||||||] 100%
+<br/>
+Secondary Master: CD-ROM Drive (D:)
+  - Insert "NostalgiaExplorer_UofTHacks_Edition" CD and press Enter...
+<br/>
+Booting from Hard Disk...
+<br/>
+Loading Nostalgia OS...
+<br/>
+Welcome to Nostalgia Explorer v1.0!
+Your portal through time, celebrating memories from the past.
+<br/>
+$Enter the year you want to explore:
+$> 1995
+<br/>
+Initializing Nostalgia Database...
+<br/>
+!Loading memories from 1995...
+  - Recreating the sights and sounds of the past...
+<br/>
+Get ready for a ride down memory lane!
+<br/>
+C:\>_
