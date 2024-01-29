@@ -70,7 +70,7 @@ const EventsSection = ({ year }: { year: string }) => {
       ))} */}
       <div className="section holder">
         <div className="white-cover"></div>
-      <p className="background-text">{smol_text + smol_text + smol_text + smol_text + smol_text}</p>
+      <p className="background-text">{smol_text + smol_text + smol_text + smol_text + smol_text + smol_text + smol_text + smol_text + smol_text}</p>
         <div className="top-row">
           <h1 className="top-left-box">"The pasts most important blasts!"</h1>
           <h1 className="events-title">Historical Events</h1>

@@ -48,7 +48,7 @@ useEffect(() => {
       }, []);
       
     return (
-        <div className="container">
+        <div className="containe">
             <div id="crt">
                 {lines.map((line, index) => {
                     let style=""
